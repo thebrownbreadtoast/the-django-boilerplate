@@ -4,6 +4,8 @@ services:
   web:
     build:
       context: .
+    environment:
+      - ENV_FILE_PATH
     volumes:
       - .:/code
     ports:
