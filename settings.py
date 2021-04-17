@@ -14,13 +14,12 @@ import os
 
 from django.core.exceptions import ImproperlyConfigured
 
-
 # Path of directory where JSON config file is placed, or Current directory as
 # default path.
-CONFIG_FILE_PATH = os.environ.get('CONFIG_FILE_PATH') or os.getcwd()
+CONFIG_FILE_PATH = os.environ.get("CONFIG_FILE_PATH") or os.getcwd()
 
 try:
-    with open(CONFIG_FILE_PATH + '/config.json') as cfg:
+    with open(CONFIG_FILE_PATH + "/config.json") as cfg:
         try:
             fallback_config = json.load(cfg)
         except json.JSONDecodeError:
@@ -54,10 +53,12 @@ def read_config(key=None, fallback_value=None):
         try:
             return os.environ[key]
         except KeyError:
-            if (fallback_value := fallback_config.get(key) or fallback_value) is None:
+            if (
+                fallback_value := fallback_config.get(key) or fallback_value
+            ) is None:
                 raise ImproperlyConfigured(
-                    f'Set value for `{key}` in environment valriable or \
-                    fallback config or provide default value.'
+                    f"Set value for `{key}` in environment valriable or \
+                    fallback config or provide default value."
                 )
 
     return fallback_value
@@ -68,41 +69,44 @@ def read_config(key=None, fallback_value=None):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = read_config(
-    'SECRET_KEY',
-    'django-insecure-105on=hqccmyf652$b+ol_q@roh@k8$z7kj9$--n3l&op*mpl-'
+    "SECRET_KEY",
+    "django-insecure-105on=hqccmyf652$b+ol_q@roh@k8$z7kj9$--n3l&op*mpl-",
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = read_config('IS_DEBUG', True)
+DEBUG = read_config("IS_DEBUG", True)
 
-ALLOWED_HOSTS = read_config('ALLOWED_HOSTS', ['*', ])
+ALLOWED_HOSTS = read_config(
+    "ALLOWED_HOSTS",
+    [
+        "*",
+    ],
+)
 
 
 # Application definition
 
 CORE_DJANGO_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
 )
 
-THIRD_PARTY_DJANGO_APPS = (
-    'rest_framework',
-)
+THIRD_PARTY_DJANGO_APPS = ("rest_framework",)
 
 INSTALLED_APPS = CORE_DJANGO_APPS + THIRD_PARTY_DJANGO_APPS
 
 CORE_DJANGO_MIDDLEWARE = (
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 )
 
 THIRD_PARTY_DJANGO_MIDDLEWARE = ()
@@ -113,48 +117,45 @@ MIDDLEWARE = (
     CORE_DJANGO_MIDDLEWARE + THIRD_PARTY_DJANGO_MIDDLEWARE + CUSTOM_MIDDLEWARE
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = "api.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = "api.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DB_ENGINE = read_variable(
-    'DB_ENGINE',
-    'django.db.backends.mysql'
-)
-DB_NAME = read_variable('DB_NAME', 'local_db')
-DB_USER = read_variable('DB_USER_NAME', 'root')
-DB_PASSWORD = read_variable('DB_USER_PASSWORD', 'root')
-DB_HOST = read_variable('DB_HOST', 'localhost')
-DB_PORT = read_variable('DB_PORT', 3306)
+DB_ENGINE = read_config("DB_ENGINE", "django.db.backends.mysql")
+DB_NAME = read_config("DB_NAME", "local_db")
+DB_USER = read_config("DB_USER_NAME", "root")
+DB_PASSWORD = read_config("DB_USER_PASSWORD", "root")
+DB_HOST = read_config("DB_HOST", "localhost")
+DB_PORT = read_config("DB_PORT", 3306)
 
 DATABASES = {
-    'default': {
-        'ENGINE': DB_ENGINE,
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT
+    "default": {
+        "ENGINE": DB_ENGINE,
+        "NAME": DB_NAME,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASSWORD,
+        "HOST": DB_HOST,
+        "PORT": DB_PORT,
     },
 }
 
@@ -164,16 +165,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -181,10 +182,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
 # Using IST timezone, change it accordingly.
-TIME_ZONE = read_config('DJANGO_TIMEZONE', 'Asia/Kolkata')
+TIME_ZONE = read_config("DJANGO_TIMEZONE", "Asia/Kolkata")
 
 USE_I18N = False
 
@@ -196,9 +197,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
