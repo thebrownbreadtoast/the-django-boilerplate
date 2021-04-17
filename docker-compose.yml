@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/code
+    ports:
+      - '4444:4444'
+    expose:
+      - '4444'
+    restart: unless-stopped
