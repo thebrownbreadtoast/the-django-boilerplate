@@ -11,6 +11,7 @@ python-dotenv = "==0.17.0"
 
 [dev-packages]
 ipdb = "==0.13.7"
+pre-commit = "==2.12.1"
 
 [requires]
 python_version = "3.9"
