@@ -14,4 +14,4 @@ NUM_CPU=`nproc`
 NUM_WORKERS=${GUNICORN_WORKERS:=$(( 2 * NUM_CPU + 1))}
 
 echo "Spawing $NUM_WORKERS gevent workers"
-gunicorn karobari.wsgi:application --bind 0.0.0.0:4444 --workers $NUM_WORKERS
+gunicorn api.wsgi:application --bind 0.0.0.0:4444 --workers $NUM_WORKERS
