@@ -1,2 +1,2 @@
 # the-django-boilerplate
-Boilerplate for Django 3.x + Python 3.x project.
+Boilerplate for Django 3.2 + Python 3.9 project.
