@@ -11,3 +11,6 @@ db.sqlite3
 .venv
 env/
 venv/
+
+# Ignored directories
+staticfiles/
