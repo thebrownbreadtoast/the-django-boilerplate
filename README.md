@@ -9,7 +9,7 @@ Hence, I've created this boilerplate for my future projects, it's using [Python 
 Things included in the boilerplate are as follow:
  - Docker & docker-compose files to kick-off development environment.
  - Commonly used Python packages bundled into Pipfile.lock
- - Pre-commit hooks integrated
+ - Pre-commit hooks integrated (run `pre-commit install` after installing all dependencies)
 	 - Black
 	 - iSort
 	 - flake8
