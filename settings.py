@@ -97,7 +97,9 @@ CORE_DJANGO_APPS = (
 
 THIRD_PARTY_DJANGO_APPS = ("rest_framework",)
 
-INSTALLED_APPS = CORE_DJANGO_APPS + THIRD_PARTY_DJANGO_APPS
+USER_DEFINED_APPS = ()
+
+INSTALLED_APPS = CORE_DJANGO_APPS + THIRD_PARTY_DJANGO_APPS + USER_DEFINED_APPS
 
 CORE_DJANGO_MIDDLEWARE = (
     "django.middleware.security.SecurityMiddleware",
@@ -141,7 +143,7 @@ WSGI_APPLICATION = "api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DB_ENGINE = read_config("DB_ENGINE", "django.db.backends.mysql")
+DB_ENGINE = read_config("DB_ENGINE", "django.db.backends.sqlite3")
 DB_NAME = read_config("DB_NAME", "local_db")
 DB_USER = read_config("DB_USER_NAME", "root")
 DB_PASSWORD = read_config("DB_USER_PASSWORD", "root")

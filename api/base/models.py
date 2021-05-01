@@ -11,8 +11,8 @@ class BaseModel(models.Model):
 
     objects = CustomBaseManager()
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)  # noqa
+    class Meta:
+        abstract = True
 
     def save(self, *args, **kwargs):
         explicit_update_fields = kwargs.get("update_fields", [])
