@@ -2,8 +2,7 @@ FROM python:alpine3.13
 
 MAINTAINER "Akshay Dadwdal <akshayd00@outlook.com>"
 
-RUN apk update && apk add --no-cache vim \
-                                     git
+RUN apk update && apk add --no-cache vim
 
 RUN mkdir /code
 
