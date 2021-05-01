@@ -10,7 +10,9 @@ def QUERYSET_VALUES_MONKEY_PATCH(self, *args, **kwargs):
 
     clone = self._values(*args, **kwargs)
 
-    # Write a custom Iterable class, to implement desired feature
+    # Write a custom Iterable class, to implement desired feature.
+    # Check below link to Django's source code for reference.
+    # https://github.com/django/django/blob/7582d913e7db7f32e4cdcfafc177aa77cbbf4332/django/db/models/query.py#L92
     clone._iterable_class = None if is_raw else models.query.ValuesIterable
 
     return clone
