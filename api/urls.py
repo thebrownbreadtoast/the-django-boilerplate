@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import include, path
 
 from api.base.routers import BaseRouter
+from api.sample.routers import sample_router
 
 api_v1_router = BaseRouter()
-
+api_v1_router.extend(sample_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
