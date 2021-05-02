@@ -22,6 +22,8 @@ def QUERYSET_VALUES_MONKEY_PATCH(self, *args, **kwargs):
 
 
 class BaseManager(models.Manager):
+    """Base Manager class to be used with BaseModel class."""
+
     def __init__(self, *args, **kwargs):
         if models.QuerySet.values is not QUERYSET_VALUES_MONKEY_PATCH:
             models.QuerySet.values = QUERYSET_VALUES_MONKEY_PATCH
