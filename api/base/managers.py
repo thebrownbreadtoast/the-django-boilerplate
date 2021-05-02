@@ -28,4 +28,4 @@ class BaseManager(models.Manager):
         if models.QuerySet.values is not QUERYSET_VALUES_MONKEY_PATCH:
             models.QuerySet.values = QUERYSET_VALUES_MONKEY_PATCH
 
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)  # noqa

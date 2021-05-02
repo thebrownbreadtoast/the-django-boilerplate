@@ -6,4 +6,4 @@ class BaseRouter(routers.SimpleRouter):
 
     def extend(self, extended_router=None):
         if extended_router:
-            self.registry.extend(extended_router.registry)
+            self.registry.extend(extended_router.registry)  # noqa

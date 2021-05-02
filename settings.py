@@ -205,3 +205,10 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "api.base.paginators.BasePaginator",
+    "PAGE_SIZE": read_config("DRF_PAGE_SIZE", 10),
+    "MAX_PAGE_SIZE": read_config("DRF_MAX_PAGE_SIZE", 25),
+}
