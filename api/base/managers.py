@@ -2,6 +2,9 @@ from django.db import models
 
 
 def QUERYSET_VALUES_MONKEY_PATCH(self, *args, **kwargs):
+    ################
+    # EXPERIMENTAL #
+    ################
     # Monkey patch to return Model object with field attributes on calling
     # `qs.values('field_name')` i.e. `qs[0].field_name`
     is_raw = kwargs.pop("raw", False)
