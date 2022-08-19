@@ -18,6 +18,7 @@ Things included in the boilerplate are as follow:
 
 [Update - 03/05/2021]
  - `sample` an example Django app initialized to explain, how to leverage this boilerplate.
+
 [Update - 20/08/2022]
  - Python bumped upto version `3.10`, `QuerySet.values` monkey-patched and black bumped upto version `22.6.0` 
 
