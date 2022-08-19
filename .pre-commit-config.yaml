@@ -1,13 +1,13 @@
 default_language_version:
-    python: python3.9
+    python: python3.10
 fail_fast: true
 repos:
 -   repo: https://github.com/ambv/black
-    rev: 3ae83c3
+    rev: f6c139c
     hooks:
     -   id: black
         args: [--line-length=79]
-        language_version: python3.9
+        language_version: python3.10
 -   repo: https://github.com/PyCQA/flake8
     rev: 3.9.1
     hooks:
