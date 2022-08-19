@@ -16,8 +16,10 @@ Things included in the boilerplate are as follow:
  - Ready to code folder structure of Django project with some base classes (i.e. BaseModel and BaseSerializer classes)
  - settings.py configured to read environment variables and jsonified configuration files, which is a better practice to manage sensitive data.
 
-[Update - 3/5/2021]
- - `sample` an example Django app initialized to explain, how to leverage this boilerplate. 
+[Update - 03/05/2021]
+ - `sample` an example Django app initialized to explain, how to leverage this boilerplate.
+[Update - 20/08/2022]
+ - Python bumped upto version `3.10`, `QuerySet.values` monkey-patched and black bumped upto version `22.6.0` 
 
 ---------------------------------------------------------------------------------
 PS: *This boilerplate is still under development, hence pinned versions of python packages might change, kindly modify accordingly before use.*
