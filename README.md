@@ -2,7 +2,7 @@
 # <p align="center">TDB (The Django Boilerplate) </p>
 
 We <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" width="25px" height="15px"> Django!
-It has been making our lives easier for so long, though it's a tedious job to write same the code every time we initialize a new Django project.
+Django has been making our lives easier for so long, though it's a tedious task to initialize and setup a Django project everytime.
 
 Hence, I've created this boilerplate for my future projects, it's using [Python 3.10](https://www.python.org/downloads/release/python-3106/) and [Django 4.1](https://docs.djangoproject.com/en/4.1/releases/4.1/), so it will be relevant for quite some time.
 
