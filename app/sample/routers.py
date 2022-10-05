@@ -1,5 +1,5 @@
-from api.base.routers import BaseRouter
-from api.sample.viewsets import SampleViewSet
+from app.base.routers import BaseRouter
+from app.sample.viewsets import SampleViewSet
 
 sample_router = BaseRouter()
 

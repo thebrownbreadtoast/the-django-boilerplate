@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from api.base.managers import BaseManager as CustomBaseManager
+from app.base.managers import BaseManager as CustomBaseManager
 
 
 class BaseModel(models.Model):

@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from api.base.routers import BaseRouter
-from api.sample.routers import sample_router
+from app.base.routers import BaseRouter
+from app.sample.routers import sample_router
 
 api_v1_router = BaseRouter()
 api_v1_router.extend(sample_router)

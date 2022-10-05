@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from api.base.serializers import BaseReadOnlySerializer
-from api.sample.models import SampleModel
+from app.base.serializers import BaseReadOnlySerializer
+from app.sample.models import SampleModel
 
 
 class SampleReadOnlySerializer(BaseReadOnlySerializer):

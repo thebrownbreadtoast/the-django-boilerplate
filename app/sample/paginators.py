@@ -1,4 +1,4 @@
-from api.base.paginators import BasePaginator
+from app.base.paginators import BasePaginator
 
 
 class SamplePaginator(BasePaginator):

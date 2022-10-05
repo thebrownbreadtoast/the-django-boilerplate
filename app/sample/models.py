@@ -1,6 +1,6 @@
 from django.db import models
 
-from api.base.models import BaseModel
+from app.base.models import BaseModel
 
 
 class SampleModel(BaseModel):
