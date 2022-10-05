@@ -97,7 +97,7 @@ CORE_DJANGO_APPS = (
 
 THIRD_PARTY_DJANGO_APPS = ("rest_framework",)
 
-USER_DEFINED_APPS = ("api.sample",)
+USER_DEFINED_APPS = ("app.sample",)
 
 INSTALLED_APPS = CORE_DJANGO_APPS + THIRD_PARTY_DJANGO_APPS + USER_DEFINED_APPS
 
@@ -119,7 +119,7 @@ MIDDLEWARE = (
     CORE_DJANGO_MIDDLEWARE + THIRD_PARTY_DJANGO_MIDDLEWARE + CUSTOM_MIDDLEWARE
 )
 
-ROOT_URLCONF = "api.urls"
+ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
     {
@@ -137,7 +137,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "api.wsgi.application"
+WSGI_APPLICATION = "app.wsgi.application"
 
 
 # Database
@@ -208,7 +208,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "api.base.paginators.BasePaginator",
+    "DEFAULT_PAGINATION_CLASS": "app.base.paginators.BasePaginator",
     "PAGE_SIZE": read_config("DRF_PAGE_SIZE", 10),
     "MAX_PAGE_SIZE": read_config("DRF_MAX_PAGE_SIZE", 25),
 }
