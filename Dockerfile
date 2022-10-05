@@ -12,4 +12,6 @@ COPY . /code
 
 RUN pip install --no-cache pipenv==2020.11.15
 
+RUN pipenv install --system --deploy
+
 ENTRYPOINT "./start.sh"
