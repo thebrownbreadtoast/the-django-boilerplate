@@ -18,4 +18,5 @@ def patched_values(self, *fields, **expressions):
     return clone
 
 
-QuerySet.values = patched_values
+# Disabling this monkey patch, as same can be achieved with .only
+# QuerySet.values = patched_values
