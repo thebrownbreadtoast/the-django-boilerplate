@@ -1,8 +1,4 @@
 #!/bin/sh
-
-echo "Installing Python dependencies..."
-pipenv install --system --deploy
-
 echo "Running Database migrations..."
 python3 manage.py migrate
 
