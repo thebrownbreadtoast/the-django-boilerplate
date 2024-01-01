@@ -16,9 +16,9 @@ services:
   db:
     image: 'postgres:11-alpine'
     environment:
-      - POSTGRES_USER=${DB_USER:root}
-      - POSTGRES_PASSWORD=${DB_PASSWORD:root}
-      - POSTGRES_DB=${DB_NAME:db}
+      - POSTGRES_USER=${DB_USER:-root}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-root}
+      - POSTGRES_DB=${DB_NAME:-db}
     volumes:
       - db-vol:/var/lib/postgresql/data
     restart: unless-stopped
