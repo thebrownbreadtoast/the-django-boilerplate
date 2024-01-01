@@ -7,14 +7,12 @@ name = "pypi"
 django = "==4.2"
 gunicorn = "==21.2.0"
 djangorestframework = "==3.14.0"
-python-dotenv = "==1.0.0"
 python-decouple = "==3.8"
+whitenoise = "==6.6.0"
 
 [dev-packages]
 ipdb = "==0.13.7"
 pre-commit = "==2.12.1"
-ipython = "==7.23.0"
-pyyaml = "==6.0"
 
 [requires]
 python_version = "3.11"

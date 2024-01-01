@@ -1,19 +1,31 @@
 default_language_version:
-    python: python3.10
+    python: python3.11
 fail_fast: true
 repos:
--   repo: https://github.com/ambv/black
-    rev: f6c139c
-    hooks:
-    -   id: black
-        args: [--line-length=79]
-        language_version: python3.10
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.3.0
+  hooks:
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+    - id: check-merge-conflict
+    - id: check-added-large-files
+
+- repo: https://github.com/ambv/black
+  rev: 23.3.0
+  hooks:
+    - id: black
+      exclude: ^.*\b(migrations)\b.*$
+      args: ["--line-length=88", "--experimental-string-processing"]
+
+- repo: https://github.com/pycqa/isort
+  rev: 5.12.0
+  hooks:
+    - id: isort
+      args: ["--profile", "black", "--filter-files", "--line-length=88", "--skip-glob=*/migrations/*"]
+
 -   repo: https://github.com/PyCQA/flake8
-    rev: 3.9.1
+    rev: 6.0.0
     hooks:
-    -   id: flake8
-        args: [--diff]
--   repo: https://github.com/PyCQA/isort
-    rev: 5.8.0
-    hooks:
-    -   id: isort
+    - id: flake8
+      exclude: ^.*\b(migrations)\b.*$
+      args: ["--max-line-length=88"]
