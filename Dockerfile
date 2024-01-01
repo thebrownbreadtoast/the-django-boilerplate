@@ -1,6 +1,6 @@
-FROM python:alpine3.13
+FROM python:3.11-alpine3.19
 
-MAINTAINER "Akshay Dadwdal <akshayd00@outlook.com>"
+LABEL maintainer="Akshay Dadwdal <akshayd00@outlook.com>"
 
 RUN apk update && apk add --no-cache vim
 
@@ -10,7 +10,7 @@ WORKDIR /code
 
 COPY . /code
 
-RUN pip install --no-cache pipenv==2020.11.15
+RUN pip install --no-cache pipenv==2023.11.15
 
 RUN pipenv install --system --deploy
 
