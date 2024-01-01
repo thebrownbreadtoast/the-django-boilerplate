@@ -4,8 +4,6 @@ services:
   web:
     build:
       context: .
-    environment:
-      -
     volumes:
       - .:/code
     ports:
