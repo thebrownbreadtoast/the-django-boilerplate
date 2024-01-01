@@ -24,7 +24,14 @@ Things included in the boilerplate are as follow:
  - Django and DRF bumped upto version `4.1` and `3.13.1` respectively
  - `QuerySet.values` monkey-patched
  - `uuid` PK added in BaseModel
- - black bumped upto version `22.6.0` 
+ - black bumped upto version `22.6.0`
+
+[Update - 01/01/2024]
+ - Python bumped upto version `3.11`
+ - Django and DRF bumped upto version `4.2` and `3.14.0` respectively
+ - `QuerySet.values` monkey-patch removed, as same can be achieved with `.only`
+ - `.pre-commit-config.yaml` updated with latest versions to support Python 3.11
+ - `python-decouple` integrated and deprecated custom `read_config` func
 
 ---------------------------------------------------------------------------------
 PS: *This boilerplate is still under development, hence pinned versions of python packages might change, kindly modify accordingly before use.*
