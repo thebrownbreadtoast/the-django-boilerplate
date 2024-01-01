@@ -4,6 +4,10 @@ services:
   web:
     build:
       context: .
+    environment:
+      - DJANGO_SUPERUSER_USERNAME=${SUPERUSER_USERNAME:-root}
+      - DJANGO_SUPERUSER_PASSWORD=${SUPERUSER_PASSWORD:-root}
+      - DJANGO_SUPERUSER_EMAIL=${SUPERUSER_EMAIL:-root@root.com}
     volumes:
       - .:/code
     ports:
