@@ -10,7 +10,7 @@ WORKDIR /code
 
 COPY . /code
 
-RUN pip install --no-cache pipenv==2023.11.15
+RUN pip install --no-cache pipenv==2023.12.1
 
 RUN pipenv install --system --deploy
 
