@@ -1,0 +1,18 @@
+services:
+  web:
+    container_name: web-dev
+    depends_on:
+      - db
+  db:
+    image: 'postgres:16.3-bookworm'
+    container_name: db-dev
+    environment:
+      - POSTGRES_USER=${DB_USER:-root}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-root}
+      - POSTGRES_DB=${DB_NAME:-db}
+    volumes:
+      - db-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db-vol:

@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: ../../
+      dockerfile: docker/Dockerfile
+    ports:
+      - '4444:4444'
+    expose:
+      - '4444'
+    restart: unless-stopped
