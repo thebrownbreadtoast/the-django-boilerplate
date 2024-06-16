@@ -33,6 +33,19 @@ Things included in the boilerplate are as follow:
  - `.pre-commit-config.yaml` updated with latest versions to support Python 3.11
  - `python-decouple` integrated and deprecated custom `read_config` func
 
+[Update - 17/06/2024]
+ - Python bumped upto version `3.12`
+ - PostgreSQL docker image bumped upto version `16.3`
+	- Added support for `psycopg3`
+ - Django and DRF bumped upto version `5.0` and `3.15.1` respectively
+ - gunicorn bumped upto verion `22.0.0`
+ - Default gunicorn worker class changed to `gthread`
+ - Dockerfile and related compose files refactored
+	- docker images changed to Debian from Alpine
+	- large compose file split into smaller files and expected usage strategy is [merge](https://docs.docker.com/compose/multiple-compose-files/merge/)
+		- Usage:
+			`docker compose -f docker/compose/base.yml -f docker/compose/dev.yml up -d`
+
 ---------------------------------------------------------------------------------
 PS: *This boilerplate is still under development, hence pinned versions of python packages might change, kindly modify accordingly before use.*
 -------------------------------------------------------
